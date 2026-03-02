@@ -1,0 +1,290 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background: radial-gradient(circle at top left, #1a1a1f, #0a0a0d 65%);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+body::before {
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        120deg,
+        transparent 40%,
+        rgba(255,255,255,0.05) 50%,
+        transparent 60%
+    );
+    transform: rotate(25deg);
+    animation: shineMove 8s linear infinite;
+}
+
+@keyframes shineMove {
+    0% { transform: translateX(-60%) rotate(25deg); }
+    100% { transform: translateX(60%) rotate(25deg); }
+}
+.container {
+    backdrop-filter: blur(15px);
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 20px;
+    padding: 40px;
+    width: 420px;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 1;
+}
+h1 {
+    font-size: 2.7rem;
+    margin-bottom: 25px;
+    letter-spacing: 2px;
+    font-weight: 700;
+    color: #ffffff;
+}
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 110px);
+    grid-template-rows: repeat(3, 110px);
+    gap: 15px;
+    margin-bottom: 30px;
+    justify-content: center;
+}
+.cell {
+    width: 110px;
+    height: 110px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    font-weight: bold;
+    cursor: pointer;
+    color: #ffffff;
+    transition: all 0.25s ease;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+.cell:hover {
+    transform: scale(1.06);
+    background: rgba(255, 255, 255, 0.12);
+}
+.cell:active {
+    transform: scale(0.95);
+}
+
+.cell.taken {
+    pointer-events: none;
+    opacity: 0.85;
+}
+.winning-message {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-top: 20px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: #00e0ff;
+    animation: pop 0.4s ease forwards;
+    min-height: 30px;
+}
+
+@keyframes pop {
+    0% { transform: scale(0.8); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+button {
+    padding: 12px 25px;
+    font-size: 1.05rem;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    background: #00e0ff;
+    color: #000;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    transform: translateY(-3px);
+    background: #00bcd4;
+}
+
+button:active {
+    transform: scale(0.95);
+}
+@media (max-width: 500px) {
+    .container {
+        width: 90%;
+        padding: 25px;
+    }
+
+    .board {
+        grid-template-columns: repeat(3, 90px);
+        grid-template-rows: repeat(3, 90px);
+        gap: 10px;
+    }
+
+    .cell {
+        width: 90px;
+        height: 90px;
+        font-size: 3rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Poppins', sans-serif;
+    background: radial-gradient(circle at top left, #1a1a1f, #0a0a0d 65%);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+body::before {
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        120deg,
+        transparent 40%,
+        rgba(255,255,255,0.05) 50%,
+        transparent 60%
+    );
+    transform: rotate(25deg);
+    animation: shineMove 8s linear infinite;
+}
+
+@keyframes shineMove {
+    0% { transform: translateX(-60%) rotate(25deg); }
+    100% { transform: translateX(60%) rotate(25deg); }
+}
+.container {
+    backdrop-filter: blur(15px);
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 20px;
+    padding: 40px;
+    width: 420px;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 1;
+}
+h1 {
+    font-size: 2.7rem;
+    margin-bottom: 25px;
+    letter-spacing: 2px;
+    font-weight: 700;
+    color: #ffffff;
+}
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 110px);
+    grid-template-rows: repeat(3, 110px);
+    gap: 15px;
+    margin-bottom: 30px;
+    justify-content: center;
+}
+.cell {
+    width: 110px;
+    height: 110px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    font-weight: bold;
+    cursor: pointer;
+    color: #ffffff;
+    transition: all 0.25s ease;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+.cell:hover {
+    transform: scale(1.06);
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.cell:active {
+    transform: scale(0.95);
+}
+
+.cell.taken {
+    pointer-events: none;
+    opacity: 0.85;
+}
+.winning-message {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-top: 20px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: #00e0ff;
+    animation: pop 0.4s ease forwards;
+    min-height: 30px;
+}
+
+@keyframes pop {
+    0% { transform: scale(0.8); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+button {
+    padding: 12px 25px;
+    font-size: 1.05rem;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    background: #00e0ff;
+    color: #000;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    transform: translateY(-3px);
+    background: #00bcd4;
+}
+
+button:active {
+    transform: scale(0.95);
+}
+@media (max-width: 500px) {
+    .container {
+        width: 90%;
+        padding: 25px;
+    }
+
+    .board {
+        grid-template-columns: repeat(3, 90px);
+        grid-template-rows: repeat(3, 90px);
+        gap: 10px;
+    }
+
+    .cell {
+        width: 90px;
+        height: 90px;
+        font-size: 3rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+}
